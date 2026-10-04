@@ -1,7 +1,9 @@
 domain: symfony-accounting-be.wex
+git:
+  publication_strategy: main_push
 global:
   name: symfony-accounting-be
   type: php-package
-  version: 1.0.0
+  version: 1.0.1
 wex:
   version: 6.0.137

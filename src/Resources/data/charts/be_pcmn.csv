@@ -1,0 +1,224 @@
+number;label;nature;lettrable;level
+1;Fonds propres, provisions pour risques et charges et dettes à plus d'un an;credit;0;class
+10;Capital;credit;0;base
+100;Capital souscrit;credit;0;base
+101;Capital non appelé;debit;0;base
+11;Primes d'émission;credit;0;base
+12;Plus-values de réévaluation;credit;0;base
+13;Réserves;credit;0;base
+130;Réserve légale;credit;0;base
+131;Réserves indisponibles;credit;0;base
+132;Réserves immunisées;credit;0;base
+133;Réserves disponibles;credit;0;base
+14;Bénéfice reporté ou perte reportée;both;0;base
+140;Bénéfice reporté;credit;0;base
+141;Perte reportée;debit;0;base
+15;Subsides en capital;credit;0;base
+16;Provisions et impôts différés;credit;0;base
+160;Provisions pour pensions et obligations similaires;credit;0;base
+161;Provisions pour charges fiscales;credit;0;base
+162;Provisions pour grosses réparations et gros entretien;credit;0;base
+163;Provisions pour obligations environnementales;credit;0;base
+164;Provisions pour autres risques et charges;credit;0;base
+168;Impôts différés;credit;0;base
+17;Dettes à plus d'un an;credit;0;base
+170;Emprunts subordonnés;credit;0;base
+171;Emprunts obligataires non subordonnés;credit;0;base
+172;Dettes de location-financement et dettes assimilées;credit;0;base
+173;Etablissements de crédit;credit;0;base
+174;Autres emprunts;credit;0;base
+175;Dettes commerciales;credit;0;base
+176;Acomptes reçus sur commandes;credit;0;base
+178;Cautionnements reçus en numéraire;credit;0;base
+179;Dettes diverses;credit;0;base
+19;Avance aux associés sur répartition de l'actif net;debit;0;base
+2;Frais d'établissement, actifs immobilisés et créances à plus d'un an;debit;0;class
+20;Frais d'établissement;debit;0;base
+21;Immobilisations incorporelles;debit;0;base
+210;Frais de recherche et de développement;debit;0;base
+211;Concessions, brevets, licences, savoir-faire, marques et droits similaires;debit;0;base
+212;Goodwill;debit;0;base
+22;Terrains et constructions;debit;0;base
+220;Terrains;debit;0;base
+221;Constructions;debit;0;base
+23;Installations, machines et outillage;debit;0;base
+24;Mobilier et matériel roulant;debit;0;base
+240;Mobilier;debit;0;base
+241;Matériel de bureau;debit;0;base
+242;Matériel informatique;debit;0;base
+245;Matériel roulant;debit;0;base
+25;Immobilisations détenues en location-financement et droits similaires;debit;0;base
+26;Autres immobilisations corporelles;debit;0;base
+27;Immobilisations corporelles en cours et acomptes versés;debit;0;base
+28;Immobilisations financières;debit;0;base
+280;Participations dans des entreprises liées;debit;0;base
+288;Cautionnements versés en numéraire;debit;0;base
+29;Créances à plus d'un an;debit;0;base
+290;Créances commerciales;debit;0;base
+291;Autres créances;debit;0;base
+3;Stocks et commandes en cours d'exécution;debit;0;class
+30;Approvisionnements - matières premières;debit;0;base
+31;Approvisionnements - fournitures;debit;0;base
+32;En-cours de fabrication;debit;0;base
+33;Produits finis;debit;0;base
+34;Marchandises;debit;0;base
+35;Immeubles destinés à la vente;debit;0;base
+36;Acomptes versés sur achats pour stocks;debit;0;base
+37;Commandes en cours d'exécution;debit;0;base
+4;Créances et dettes à un an au plus;both;0;class
+40;Créances commerciales;debit;1;base
+400;Clients;debit;1;base
+401;Effets à recevoir;debit;1;base
+404;Produits à recevoir;debit;1;base
+406;Acomptes versés;debit;1;base
+407;Créances douteuses;debit;1;base
+409;Réductions de valeur actées;credit;0;base
+41;Autres créances;debit;0;base
+411;TVA à récupérer;debit;0;base
+412;Impôts et précomptes à récupérer;debit;0;base
+414;Produits à recevoir;debit;0;base
+416;Créances diverses;debit;0;base
+417;Créances douteuses;debit;0;base
+418;Cautionnements versés en numéraire;debit;0;base
+419;Réductions de valeur actées;credit;0;base
+42;Dettes à plus d'un an échéant dans l'année;credit;0;base
+43;Dettes financières;credit;0;base
+430;Etablissements de crédit - emprunts en compte à terme fixe;credit;0;base
+433;Etablissements de crédit - dettes en compte courant;credit;0;base
+439;Autres emprunts;credit;0;base
+44;Dettes commerciales;credit;1;base
+440;Fournisseurs;credit;1;base
+441;Effets à payer;credit;1;base
+444;Factures à recevoir;credit;1;base
+45;Dettes fiscales, salariales et sociales;credit;0;base
+450;Dettes fiscales estimées;credit;0;base
+451;TVA à payer;credit;0;base
+452;Impôts et taxes à payer;credit;0;base
+453;Précomptes retenus;credit;0;base
+454;Office national de sécurité sociale;credit;0;base
+455;Rémunérations;credit;0;base
+456;Pécules de vacances;credit;0;base
+459;Autres dettes sociales;credit;0;base
+46;Acomptes reçus sur commandes;credit;1;base
+47;Dettes découlant de l'affectation du résultat;credit;0;base
+470;Dividendes et tantièmes d'exercices antérieurs;credit;0;base
+471;Dividendes de l'exercice;credit;0;base
+472;Tantièmes de l'exercice;credit;0;base
+473;Autres allocataires;credit;0;base
+48;Dettes diverses;credit;0;base
+488;Cautionnements reçus en numéraire;credit;0;base
+489;Autres dettes diverses;credit;0;base
+49;Comptes de régularisation et comptes d'attente;both;0;base
+490;Charges à reporter;debit;0;base
+491;Produits acquis;debit;0;base
+492;Charges à imputer;credit;0;base
+493;Produits à reporter;credit;0;base
+499;Comptes d'attente;both;0;base
+5;Placements de trésorerie et valeurs disponibles;debit;0;class
+50;Actions propres;debit;0;base
+51;Actions et parts;debit;0;base
+52;Titres à revenu fixe;debit;0;base
+53;Dépôts à terme;debit;0;base
+54;Valeurs échues à l'encaissement;debit;0;base
+55;Etablissements de crédit;both;0;base
+550;Etablissements de crédit - comptes courants;both;0;base
+551;Etablissements de crédit - chèques émis;credit;0;base
+56;Office des chèques postaux;both;0;base
+57;Caisses;debit;0;base
+570;Caisses - espèces;debit;0;base
+58;Virements internes;both;0;base
+580;Virements internes;both;0;base
+6;Charges;debit;0;class
+60;Approvisionnements et marchandises;debit;0;base
+600;Achats de matières premières;debit;0;base
+601;Achats de fournitures;debit;0;base
+602;Achats de services, travaux et études;debit;0;base
+603;Sous-traitances générales;debit;0;base
+604;Achats de marchandises;debit;0;base
+605;Achats d'immeubles destinés à la vente;debit;0;base
+608;Remises, ristournes et rabais obtenus;credit;0;base
+609;Variation des stocks;both;0;base
+61;Services et biens divers;debit;0;base
+610;Loyers et charges locatives;debit;0;base
+611;Entretien et réparations;debit;0;base
+612;Fournitures faites à l'entreprise;debit;0;base
+613;Rétributions de tiers;debit;0;base
+614;Annonces, publicité, propagande et documentation;debit;0;base
+615;Sous-traitants;debit;0;base
+616;Frais de déplacement;debit;0;base
+617;Personnel intérimaire et personnes mises à la disposition de l'entreprise;debit;0;base
+618;Rémunérations, primes pour assurances extralégales des administrateurs ou gérants;debit;0;base
+62;Rémunérations, charges sociales et pensions;debit;0;base
+620;Rémunérations et avantages sociaux directs;debit;0;base
+621;Cotisations patronales d'assurances sociales;debit;0;base
+622;Primes patronales pour assurances extralégales;debit;0;base
+623;Autres frais de personnel;debit;0;base
+624;Pensions de retraite et de survie;debit;0;base
+63;Amortissements, réductions de valeur et provisions pour risques et charges;debit;0;base
+630;Dotations aux amortissements et aux réductions de valeur sur immobilisations;debit;0;base
+631;Réductions de valeur sur stocks;debit;0;base
+632;Réductions de valeur sur commandes en cours;debit;0;base
+633;Réductions de valeur sur créances commerciales à plus d'un an;debit;0;base
+634;Réductions de valeur sur créances commerciales à un an au plus;debit;0;base
+635;Provisions pour pensions et obligations similaires;debit;0;base
+636;Provisions pour grosses réparations et gros entretien;debit;0;base
+637;Provisions pour obligations environnementales;debit;0;base
+638;Provisions pour autres risques et charges;debit;0;base
+64;Autres charges d'exploitation;debit;0;base
+640;Charges fiscales d'exploitation;debit;0;base
+641;Moins-values sur réalisations courantes d'immobilisations corporelles;debit;0;base
+642;Moins-values sur réalisation de créances commerciales;debit;0;base
+643;Charges d'exploitation diverses;debit;0;base
+649;Charges d'exploitation portées à l'actif au titre de frais de restructuration;credit;0;base
+65;Charges financières;debit;0;base
+650;Charges des dettes;debit;0;base
+651;Réductions de valeur sur actifs circulants;debit;0;base
+652;Moins-values sur réalisation d'actifs circulants;debit;0;base
+653;Charges d'escompte de créances;debit;0;base
+654;Différences de change;debit;0;base
+655;Ecarts de conversion des devises;debit;0;base
+656;Provisions à caractère financier;debit;0;base
+657;Charges financières diverses;debit;0;base
+66;Charges d'exploitation ou financières non récurrentes;debit;0;base
+67;Impôts sur le résultat;debit;0;base
+670;Impôts belges sur le résultat de l'exercice;debit;0;base
+671;Impôts belges sur le résultat d'exercices antérieurs;debit;0;base
+672;Impôts étrangers sur le résultat de l'exercice;debit;0;base
+68;Transferts aux impôts différés et aux réserves immunisées;debit;0;base
+69;Affectations et prélèvements;debit;0;base
+690;Perte reportée de l'exercice précédent;debit;0;base
+691;Dotation au capital et aux primes d'émission;debit;0;base
+692;Dotation aux réserves;debit;0;base
+693;Bénéfice à reporter;debit;0;base
+694;Rémunération du capital;debit;0;base
+695;Administrateurs ou gérants;debit;0;base
+696;Employés;debit;0;base
+697;Autres allocataires;debit;0;base
+7;Produits;credit;0;class
+70;Chiffre d'affaires;credit;0;base
+700;Ventes et prestations de services;credit;0;base
+708;Remises, ristournes et rabais accordés;debit;0;base
+71;Variation des stocks et des commandes en cours d'exécution;both;0;base
+72;Production immobilisée;credit;0;base
+74;Autres produits d'exploitation;credit;0;base
+740;Subsides d'exploitation et montants compensatoires;credit;0;base
+741;Plus-values sur réalisations courantes d'immobilisations corporelles;credit;0;base
+742;Plus-values sur réalisations de créances commerciales;credit;0;base
+743;Produits d'exploitation divers;credit;0;base
+75;Produits financiers;credit;0;base
+750;Produits des immobilisations financières;credit;0;base
+751;Produits des actifs circulants;credit;0;base
+752;Plus-values sur réalisation d'actifs circulants;credit;0;base
+753;Subsides en capital et en intérêts;credit;0;base
+754;Différences de change;credit;0;base
+755;Ecarts de conversion des devises;credit;0;base
+756;Produits financiers divers;credit;0;base
+76;Produits d'exploitation ou financiers non récurrents;credit;0;base
+77;Régularisations d'impôts et reprises de provisions fiscales;credit;0;base
+78;Prélèvements sur les impôts différés et les réserves immunisées;credit;0;base
+79;Affectations et prélèvements;credit;0;base
+790;Bénéfice reporté de l'exercice précédent;credit;0;base
+791;Prélèvement sur les capitaux propres;credit;0;base
+792;Prélèvement sur les réserves;credit;0;base
+793;Perte à reporter;credit;0;base
+794;Intervention d'associés ou du propriétaire dans la perte;credit;0;base

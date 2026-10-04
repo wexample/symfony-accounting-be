@@ -1,0 +1,12 @@
+framework:
+  default_locale: fr
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Wexample\SymfonyMoney\Service\MoneyFormatter:
+    arguments:
+      $defaultLocale: fr

@@ -1,0 +1,55 @@
+identity:
+  be:
+    enterprise_number: N° d'entreprise
+    vat_number: N° TVA
+
+mention:
+  be:
+    payment: "Facture payable au plus tard %days% jours après la date de facturation. En cas de retard de paiement, des intérêts de retard au taux légal sont dus de plein droit et sans mise en demeure (loi du 2 août 2002 concernant la lutte contre le retard de paiement dans les transactions commerciales), ainsi qu'une indemnité forfaitaire de %flat_fee% € pour frais de recouvrement."
+    credit_note: Note de crédit — TVA à reverser à l'État dans la mesure où elle a été initialement déduite.
+    vat:
+      franchise: Régime particulier de franchise des petites entreprises — TVA non applicable.
+      reverse_charge: Autoliquidation — article 21, § 2, du Code TVA et article 196 de la directive 2006/112/CE.
+      intra_eu_goods: Livraison intracommunautaire exemptée, article 39bis du Code TVA.
+      export: Exportation exemptée, article 39 du Code TVA.
+      exempt: Exemption de TVA, article 44 du Code TVA.
+
+report:
+  be:
+    formation_expenses: Frais d'établissement
+    intangible_assets: Immobilisations incorporelles
+    tangible_assets: Immobilisations corporelles
+    financial_assets: Immobilisations financières
+    receivables_over_one_year: Créances à plus d'un an
+    receivables_within_one_year: Créances à un an au plus
+    investments: Placements de trésorerie
+    deferred_charges: Comptes de régularisation (actif)
+    current_assets: Actifs circulants
+    capital: Capital
+    share_premium: Primes d'émission
+    revaluation: Plus-values de réévaluation
+    reserves: Réserves
+    retained_result: Bénéfice (perte) reporté(e)
+    capital_grants: Subsides en capital
+    debts_over_one_year: Dettes à plus d'un an
+    debts_within_one_year: Dettes à un an au plus
+    accrued_charges: Comptes de régularisation (passif)
+    turnover: Chiffre d'affaires
+    production: Production stockée et immobilisée
+    other_operating_income: Autres produits d'exploitation
+    non_recurring_operating_income: Produits d'exploitation non récurrents
+    supplies_goods: Approvisionnements et marchandises
+    services: Services et biens divers
+    remuneration: Rémunérations, charges sociales et pensions
+    depreciation: Amortissements
+    write_downs: Réductions de valeur
+    provisions: Provisions pour risques et charges
+    other_operating_charges: Autres charges d'exploitation
+    non_recurring_operating_charges: Charges d'exploitation non récurrentes
+    operating_result: Bénéfice (perte) d'exploitation
+    financial_income: Produits financiers
+    financial_charges: Charges financières
+    result_before_tax: Bénéfice (perte) avant impôts
+    deferred_taxes_withdrawal: Prélèvements sur les impôts différés
+    deferred_taxes_transfer: Transfert aux impôts différés
+    income_taxes: Impôts sur le résultat

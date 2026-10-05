@@ -71,6 +71,7 @@ class CodaBankStatementParser extends AbstractBankStatementParser
             } elseif ('2' === $type && '1' === $line[1]) {
                 if ('0000' !== substr($line, 6, 4)) {
                     $current = null;
+
                     continue;
                 }
 

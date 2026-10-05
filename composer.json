@@ -3,7 +3,7 @@
   "description": "Belgian law for symfony-accounting: PCMN chart, enterprise numbers, structured communications, CODA bank files, periodic VAT return, client and intra-EU listings, legal mentions",
   "type": "library",
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "autoload": {
     "psr-4": {
       "Wexample\\SymfonyAccountingBe\\": "src/"
@@ -23,7 +23,7 @@
   "require": {
     "php": ">=8.5",
     "wexample/symfony-accounting": ">=4.0.0",
-    "wexample/symfony-helpers": ">=14.0.0"
+    "wexample/symfony-helpers": ">=15.0.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^13",

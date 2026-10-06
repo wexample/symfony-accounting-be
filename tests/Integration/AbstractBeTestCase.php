@@ -4,7 +4,6 @@ namespace Wexample\SymfonyAccountingBe\Tests\Integration;
 
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-use Wexample\SymfonyGeo\Entity\Country;
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Wexample\SymfonyAccounting\Entity\BankAccount;
@@ -19,6 +18,7 @@ use Wexample\SymfonyAccounting\Service\Invoice\InvoiceEmissionService;
 use Wexample\SymfonyAccounting\Service\Invoice\InvoiceFactory;
 use Wexample\SymfonyAccounting\Service\Ledger\LedgerService;
 use Wexample\SymfonyAccounting\Service\Ledger\PartyService;
+use Wexample\SymfonyGeo\Entity\Country;
 
 abstract class AbstractBeTestCase extends KernelTestCase
 {

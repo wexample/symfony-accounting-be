@@ -1,6 +1,6 @@
 # symfony-accounting-be
 
-Version: 2.0.1
+Version: 3.0.0
 
 ## Chart and journals
 
@@ -57,7 +57,7 @@ Visit the [Wexample Suite documentation](https://docs.wexample.com) for the comp
 ## Dependencies
 
 - php: >=8.5
-- wexample/symfony-accounting: >=4.0.0
+- wexample/symfony-accounting: >=5.0.0
 - wexample/symfony-helpers: >=15.0.0
 
 ## Versioning & Compatibility Policy

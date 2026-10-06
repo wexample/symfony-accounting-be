@@ -29,7 +29,7 @@ class BeVatReturnForm implements VatReturnFormInterface
 
     public function supports(Ledger $ledger): bool
     {
-        return 'BE' === strtoupper((string) $ledger->getCountryCode()) && $ledger->isVatSubject();
+        return 'BE' === $ledger->getCountry()?->getIsoAlpha2Code() && $ledger->isVatSubject();
     }
 
     public function fill(VatReturn $vatReturn): array

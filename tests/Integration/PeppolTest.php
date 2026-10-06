@@ -101,7 +101,7 @@ class PeppolTest extends AbstractBeTestCase
         $xml = $this->service(UblInvoiceBuilder::class)->build($sale);
 
         // The buyer's books receive it.
-        $buyer = $this->service(\Wexample\SymfonyAccounting\Service\Ledger\LedgerService::class)->create('Buyer SA', 'BE', fiscalYearStart: new \DateTimeImmutable('2026-01-01'));
+        $buyer = $this->service(\Wexample\SymfonyAccounting\Service\Ledger\LedgerService::class)->create('Buyer SA', $this->country('BE'), fiscalYearStart: new \DateTimeImmutable('2026-01-01'));
         $result = $this->service(\Wexample\SymfonyAccounting\Service\Document\UblInvoiceReader::class)->read($buyer, $xml);
         $purchase = $result->invoice;
 

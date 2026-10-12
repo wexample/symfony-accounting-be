@@ -119,6 +119,8 @@ class BeJurisdiction extends AbstractJurisdiction
             'asset_disposal_value' => '663',
             'prepaid_expenses' => '490',
             'deferred_income' => '493',
+            'vat_adjustment_gain' => '743',
+            'vat_adjustment_loss' => '643',
             'rounding_gain' => '743',
             'rounding_loss' => '643',
             'result_profit' => '140',

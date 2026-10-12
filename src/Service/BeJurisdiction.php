@@ -103,6 +103,7 @@ class BeJurisdiction extends AbstractJurisdiction
             'payment_provider' => '5501',
             'bank_fees' => '657',
             'vat_collected' => '451',
+            'vat_collected_oss' => '4518',
             'vat_collected_pending' => '4519',
             'vat_deductible' => '411',
             'vat_deductible_pending' => '4119',

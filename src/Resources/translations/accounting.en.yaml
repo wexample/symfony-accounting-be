@@ -10,6 +10,7 @@ mention:
     vat:
       franchise: Régime particulier de franchise des petites entreprises — TVA non applicable.
       reverse_charge: Autoliquidation — article 21, § 2, du Code TVA et article 196 de la directive 2006/112/CE.
+      domestic_reverse_charge: Autoliquidation — régime du cocontractant, article 20 de l'arrêté royal n° 1 relatif aux mesures tendant à assurer le paiement de la TVA. TVA à acquitter par le cocontractant.
       intra_eu_goods: Livraison intracommunautaire exemptée, article 39bis du Code TVA.
       export: Exportation exemptée, article 39 du Code TVA.
       exempt: Exemption de TVA, article 44 du Code TVA.

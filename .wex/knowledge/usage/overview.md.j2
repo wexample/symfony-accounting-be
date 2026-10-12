@@ -10,7 +10,7 @@ Mentions: franchise regime, autoliquidation (art. 21 § 2 CTVA), intra-EU suppli
 
 ## Returns and listings
 
-`BeVatReturnForm` fills grids 01–03, 44–49, 54–64, 71–72, 81–88 and 91 from the core VAT return; credit notes go to their own grids. Purchases split by account: 60 → 81, class 2 → 83, the rest → 82. Reverse-charged services all land in 88: move those bought outside the EU to 87 by hand for now.
+`BeVatReturnForm` fills grids 01–03, 44–49, 54–64, 71–72, 81–88 and 91 from the core VAT return; credit notes go to their own grids. Purchases split by account: 60 → 81, class 2 → 83, the rest → 82. Self-assessed purchases: services from the EU in 88 (tax in 55), services from outside the EU and the cocontractant regime (construction works) in 87 (tax in 56). A sale under the cocontractant regime goes to 45, with its mention.
 
 `BeClientListingProvider` gives the annual listing (Belgian VAT-registered customers from 250 €), `BeIntraEuListingProvider` the intra-Community listing by VAT number and code (L, S).
 

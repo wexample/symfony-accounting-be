@@ -175,6 +175,7 @@ class BeJurisdiction extends AbstractJurisdiction
             $key = match ($kind) {
                 VatKind::Franchise => 'mention.be.vat.franchise',
                 VatKind::IntraEuServices => 'mention.be.vat.reverse_charge',
+                VatKind::DomesticReverseCharge => 'mention.be.vat.domestic_reverse_charge',
                 VatKind::IntraEuGoods => 'mention.be.vat.intra_eu_goods',
                 VatKind::Export => 'mention.be.vat.export',
                 VatKind::Exempt => 'mention.be.vat.exempt',

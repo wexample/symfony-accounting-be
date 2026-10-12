@@ -3,6 +3,7 @@
 namespace Wexample\SymfonyAccountingBe\Tests\Integration;
 
 use DateTimeImmutable;
+use Wexample\SymfonyAccounting\Enum\InvoiceDirection;
 use Wexample\SymfonyAccounting\Enum\InvoiceStatus;
 use Wexample\SymfonyAccounting\Repository\AccountRepository;
 use Wexample\SymfonyAccounting\Service\Bank\BankImportService;
@@ -95,6 +96,43 @@ class BeAccountingTest extends AbstractBeTestCase
         $this->assertSame(30000, $grids['82']);
         $this->assertSame(6300 + 8400, $grids['59']);
         $this->assertSame(22200 - 2100 - 14700, $grids['71']);
+        $this->assertSame(0, $grids['72']);
+    }
+
+    public function testSelfAssessedServicesAndTheCocontractantRegime(): void
+    {
+        $ledger = $this->createLedger();
+        $factory = $this->service(InvoiceFactory::class);
+        $emission = $this->service(InvoiceEmissionService::class);
+
+        // Services bought outside the EU, then from the EU: grids 87 and 88.
+        $this->emitPurchase($ledger, $this->createParty($ledger, 'Swiss AG', 'CH', 'CHE123456789', customer: false, supplier: true), 10000, '2026-01-10');
+        $this->emitPurchase($ledger, $this->createParty($ledger, 'Dutch BV', 'NL', 'NL123456789B01', customer: false, supplier: true), 20000, '2026-01-11');
+
+        // Construction works between Belgian companies: the cocontractant self-assesses.
+        $works = $factory->create($ledger, direction: InvoiceDirection::Purchase, party: $this->createParty($ledger, 'Sous-traitant', null, 'BE0417497106', customer: false, supplier: true), dateInvoice: new DateTimeImmutable('2026-02-01'))->setNumber('T-1');
+        $factory->addItem($works, 'Travaux', 30000)->setDomesticReverseCharge(true);
+        $this->em()->flush();
+        $emission->emit($works);
+
+        $sale = $factory->create($ledger, party: $this->createParty($ledger, 'Entreprise générale', null, 'BE0403170701'), dateInvoice: new DateTimeImmutable('2026-02-10'));
+        $factory->addItem($sale, 'Rénovation', 50000)->setDomesticReverseCharge(true);
+        $this->em()->flush();
+        $emission->emit($sale);
+
+        $this->assertSame(0, $sale->calcPriceBreakdown()->getVat());
+        $this->assertContains('mention.be.vat.domestic_reverse_charge', array_map(fn ($mention) => $mention->key, $this->service(JurisdictionRegistry::class)->forLedger($ledger)->getInvoiceMentions($sale)));
+
+        $vat = $this->service(VatReturnService::class);
+        $grids = $vat->fillForms($vat->compute($ledger, new DateTimeImmutable('2026-01-01'), new DateTimeImmutable('2026-03-31')))['be_periodic'];
+
+        $this->assertSame(50000, $grids['45']);
+        $this->assertSame(10000 + 30000, $grids['87']);
+        $this->assertSame(20000, $grids['88']);
+        $this->assertSame(4200, $grids['55']);
+        $this->assertSame(2100 + 6300, $grids['56']);
+        $this->assertSame(2100 + 4200 + 6300, $grids['59']);
+        $this->assertSame(0, $grids['71']);
         $this->assertSame(0, $grids['72']);
     }
 

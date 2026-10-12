@@ -14,9 +14,10 @@ use Wexample\SymfonyAccounting\Interface\VatReturnFormInterface;
  * 85, 63, 64) rather than being deducted, as the form wants.
  *
  * Purchases are split by account: 60 → grid 81 (goods), 2 → 83 (investments),
- * any other charge → 82 (services and miscellaneous goods). Reverse-charged
- * services all go to grid 88 (from the EU): those bought outside the EU belong
- * in 87 and must be moved by hand until the party's country is tracked per line.
+ * any other charge → 82 (services and miscellaneous goods). Self-assessed
+ * purchases: intra-EU goods in 86, services from the EU in 88 (tax in 55),
+ * services from outside the EU and the cocontractant regime in 87 (tax in 56).
+ * A sale under the cocontractant regime goes to grid 45.
  */
 class BeVatReturnForm implements VatReturnFormInterface
 {
@@ -46,30 +47,33 @@ class BeVatReturnForm implements VatReturnFormInterface
         $intraServices = $vatReturn->sum($sale, VatKind::IntraEuServices);
         $intraGoods = $vatReturn->sum($sale, VatKind::IntraEuGoods);
         $exempt = $vatReturn->sum($sale, [VatKind::Export, VatKind::Exempt, VatKind::OutOfScope]);
+        $cocontractant = $vatReturn->sum($sale, VatKind::DomesticReverseCharge);
         $domesticSales = $vatReturn->sum($sale, VatKind::Domestic);
 
         $grids['44'] = $intraServices['base'] + $intraServices['baseReversed'];
+        $grids['45'] = $cocontractant['base'] + $cocontractant['baseReversed'];
         $grids['46'] = $intraGoods['base'] + $intraGoods['baseReversed'];
         $grids['47'] = $exempt['base'] + $exempt['baseReversed'];
         $grids['48'] = $intraServices['baseReversed'] + $intraGoods['baseReversed'];
-        $grids['49'] = $domesticSales['baseReversed'] + $exempt['baseReversed'];
+        $grids['49'] = $domesticSales['baseReversed'] + $exempt['baseReversed'] + $cocontractant['baseReversed'];
 
         $purchases = $vatReturn->sum($purchase, VatKind::Domestic);
         $selfAssessedGoods = $vatReturn->sum($purchase, VatKind::IntraEuAcquisition);
         $selfAssessedServices = $vatReturn->sum($purchase, VatKind::ReverseCharge);
+        $otherSelfAssessed = $vatReturn->sum($purchase, [VatKind::ImportedServices, VatKind::DomesticReverseCharge]);
 
         $grids['81'] = $vatReturn->sum($purchase, null, null, ['60'])['base'];
         $grids['83'] = $vatReturn->sum($purchase, null, null, ['2'])['base'];
         $grids['82'] = $vatReturn->sum($purchase)['base'] - $grids['81'] - $grids['83'];
         $grids['84'] = $selfAssessedGoods['baseReversed'] + $selfAssessedServices['baseReversed'];
-        $grids['85'] = $purchases['baseReversed'];
+        $grids['85'] = $purchases['baseReversed'] + $otherSelfAssessed['baseReversed'];
         $grids['86'] = $selfAssessedGoods['base'] + $selfAssessedGoods['baseReversed'];
-        $grids['87'] = 0;
+        $grids['87'] = $otherSelfAssessed['base'] + $otherSelfAssessed['baseReversed'];
         $grids['88'] = $selfAssessedServices['base'] + $selfAssessedServices['baseReversed'];
 
         $grids['54'] = $domesticSales['due'] + $domesticSales['dueReversed'];
         $grids['55'] = $selfAssessedGoods['due'] + $selfAssessedServices['due'];
-        $grids['56'] = 0;
+        $grids['56'] = $otherSelfAssessed['due'];
         $grids['57'] = 0;
         $grids['61'] = 0;
         $grids['63'] = $vatReturn->sum($purchase)['deductibleReversed'];

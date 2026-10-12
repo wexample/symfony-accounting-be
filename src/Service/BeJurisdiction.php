@@ -244,6 +244,7 @@ class BeJurisdiction extends AbstractJurisdiction
         return [
             ReportDefinition::fromArray(require __DIR__.'/../Resources/data/reports/balance_sheet.php'),
             ReportDefinition::fromArray(require __DIR__.'/../Resources/data/reports/income_statement.php'),
+            ReportDefinition::fromArray(require __DIR__.'/../Resources/data/reports/nbb_annual_accounts.php'),
         ];
     }
 

@@ -4,8 +4,6 @@ namespace Wexample\SymfonyAccountingBe\Tests\Integration;
 
 use DateTimeImmutable;
 use Wexample\SymfonyAccounting\Class\EntryDraft;
-use Wexample\SymfonyAccounting\Entity\FiscalYear;
-use Wexample\SymfonyAccounting\Entity\Ledger;
 use Wexample\SymfonyAccounting\Enum\JournalType;
 use Wexample\SymfonyAccounting\Exception\AccountingException;
 use Wexample\SymfonyAccounting\Service\Ledger\FiscalYearClosingService;

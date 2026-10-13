@@ -1,6 +1,6 @@
 # symfony-accounting-be
 
-Version: 4.0.0
+Version: 4.0.1
 
 ## Chart and journals
 

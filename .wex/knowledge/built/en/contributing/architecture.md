@@ -1,6 +1,6 @@
 ## Architecture
 
-src/Service/BeJurisdiction.php extends the core `AbstractJurisdiction` and reads its chart from src/Resources/data/charts/be_pcmn.csv and its layouts (NBB abbreviated schema) from src/Resources/data/reports. src/Helper/BeIdentityHelper.php and src/Helper/StructuredCommunicationHelper.php hold the mod-97 rules.
+src/Service/BeJurisdiction.php extends the core `AbstractJurisdiction` and reads its chart from src/Resources/data/charts/be_pcmn.csv and its layouts (NBB abbreviated schema) from src/Resources/data/reports. src/Helper/StructuredCommunicationHelper.php holds the mod-97 rule of the structured communication; the identity rules (company and VAT numbers) live in `wexample/symfony-organization`.
 
 The CODA parser, the VAT form and the listings plug into the core extension points; the listings read emitted invoices, the VAT form reads the core `VatReturn`, whose per-account bases and reversed amounts (credit notes) exist for it.
 

@@ -14,7 +14,6 @@ use Wexample\SymfonyAccounting\Enum\InvoiceType;
 use Wexample\SymfonyAccounting\Enum\JournalType;
 use Wexample\SymfonyAccounting\Enum\VatKind;
 use Wexample\SymfonyAccounting\Service\Jurisdiction\AbstractJurisdiction;
-use Wexample\SymfonyAccountingBe\Helper\BeIdentityHelper;
 use Wexample\SymfonyAccountingBe\Helper\StructuredCommunicationHelper;
 
 /**
@@ -41,32 +40,10 @@ class BeJurisdiction extends AbstractJurisdiction
         return 'BE';
     }
 
-    public function getLegalIdentifierLabel(): string
-    {
-        return 'identity.be.enterprise_number';
-    }
 
-    public function getVatNumberLabel(): string
-    {
-        return 'identity.be.vat_number';
-    }
 
-    public function isLegalIdentifierIncludedInVatNumber(): bool
-    {
-        return true;
-    }
 
-    public function isLegalIdentifierValid(string $identifier): bool
-    {
-        return BeIdentityHelper::isValidEnterpriseNumber($identifier);
-    }
 
-    public function isVatNumberValid(string $vatNumber): bool
-    {
-        return str_starts_with(strtoupper(trim($vatNumber)), 'BE')
-            ? BeIdentityHelper::isValidVatNumber($vatNumber)
-            : parent::isVatNumberValid($vatNumber);
-    }
 
     public function getVatRates(): array
     {

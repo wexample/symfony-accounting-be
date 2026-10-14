@@ -17,8 +17,8 @@ class NbbAnnualAccountsTest extends AbstractBeTestCase
     private function year(): array
     {
         $ledger = $this->createLedger();
-        $ledger->setName('Atelier Test')->setLegalForm('SRL')->setPostalAddress('Rue Neuve 12 bte 3')->setPostCode('1000')->setCity('Bruxelles')
-            ->setSettings([...$ledger->getSettings(), 'be_nbb' => ['court' => 'm31', 'last_deed_date' => '2020-01-15']]);
+        $ledger->getOrganization()->setName('Atelier Test')->setLegalForm('SRL')->setPostalAddress('Rue Neuve 12 bte 3')->setPostCode('1000')->setCity('Bruxelles');
+        $ledger->setSettings([...$ledger->getSettings(), 'be_nbb' => ['court' => 'm31', 'last_deed_date' => '2020-01-15']]);
 
         $posting = $this->service(PostingService::class);
         // Capital paid in, equipment bought then depreciated.

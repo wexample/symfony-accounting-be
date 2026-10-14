@@ -23,7 +23,8 @@
   "require": {
     "php": ">=8.5",
     "wexample/symfony-accounting": ">=6.0.0",
-    "wexample/symfony-helpers": ">=16.0.0"
+    "wexample/symfony-helpers": ">=16.0.0",
+    "wexample/symfony-organization": ">=1.0.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^13",

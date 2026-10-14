@@ -21,11 +21,11 @@ class PeppolTest extends AbstractBeTestCase
     public function testInvoice(): void
     {
         $ledger = $this->createLedger();
-        $ledger->setPostalAddress('Rue Neuve 1')->setPostCode('1000')->setCity('Bruxelles');
+        $ledger->getOrganization()->setPostalAddress('Rue Neuve 1')->setPostCode('1000')->setCity('Bruxelles');
         $bank = $this->createBankAccount($ledger)->setIban('BE68539007547034')->setBic('GKCCBEBB');
         $ledger->setDefaultBankAccount($bank);
         $party = $this->createParty($ledger, 'Client SA', 'BE', 'BE0417497106');
-        $party->setLegalIdentifier('0417.497.106')->setPostalAddress('Avenue Louise 10')->setPostCode('1050')->setCity('Ixelles');
+        $party->getOrganization()->setLegalIdentifier('0417.497.106')->setPostalAddress('Avenue Louise 10')->setPostCode('1050')->setCity('Ixelles');
 
         $factory = $this->service(InvoiceFactory::class);
         $invoice = $factory->create($ledger, party: $party, title: 'PO-77');
@@ -87,7 +87,7 @@ class PeppolTest extends AbstractBeTestCase
     {
         // The seller's books.
         $seller = $this->createLedger();
-        $seller->setName('Seller SRL')->setPostalAddress('Rue Haute 5')->setPostCode('4000')->setCity('Liège');
+        $seller->getOrganization()->setName('Seller SRL')->setPostalAddress('Rue Haute 5')->setPostCode('4000')->setCity('Liège');
         $sellerBank = $this->createBankAccount($seller)->setIban('BE68539007547034');
         $seller->setDefaultBankAccount($sellerBank);
         $buyerInSellerBooks = $this->createParty($seller, 'Buyer SA', 'BE', 'BE0417497106');

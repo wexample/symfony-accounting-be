@@ -1,8 +1,3 @@
-identity:
-  be:
-    enterprise_number: N° d'entreprise
-    vat_number: N° TVA
-
 mention:
   be:
     payment: "Facture payable au plus tard %days% jours après la date de facturation. En cas de retard de paiement, des intérêts de retard au taux légal sont dus de plein droit et sans mise en demeure (loi du 2 août 2002 concernant la lutte contre le retard de paiement dans les transactions commerciales), ainsi qu'une indemnité forfaitaire de %flat_fee% € pour frais de recouvrement."

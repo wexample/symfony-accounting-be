@@ -68,7 +68,7 @@ abstract class AbstractBeTestCase extends KernelTestCase
     protected function createLedger(string $start = '2026-01-01'): Ledger
     {
         $ledger = $this->service(LedgerService::class)->create('Société Test', $this->country('BE'), fiscalYearStart: new DateTimeImmutable($start));
-        $ledger->setLegalIdentifier('0123.456.749')->setVatNumber('BE0123456749')->setSettings(['default_vat_rate' => 2100]);
+        $ledger->setSettings(['default_vat_rate' => 2100])->getOrganization()->setLegalIdentifier('0123.456.749')->setVatNumber('BE0123456749');
         $this->em()->flush();
 
         return $ledger;
@@ -83,7 +83,7 @@ abstract class AbstractBeTestCase extends KernelTestCase
         bool $supplier = false,
     ): Party {
         $party = $this->service(PartyService::class)->create($ledger, $name, $customer, $supplier, $countryCode ? $this->country($countryCode) : null);
-        $party->setVatNumber($vatNumber);
+        $party->getOrganization()->setVatNumber($vatNumber);
         $this->em()->flush();
 
         return $party;

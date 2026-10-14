@@ -128,8 +128,9 @@ class NbbXbrlWriter
         DateTimeImmutable $approvalDate
     ): array {
         $settings = $ledger->getSetting('be_nbb', []);
-        [$street, $number, $box] = $this->splitStreet((string) strtok((string) $ledger->getPostalAddress(), "\r\n"));
-        $postalCode = (string) $ledger->getPostCode();
+        $address = $ledger->getAddress();
+        [$street, $number, $box] = $this->splitStreet((string) strtok((string) $address?->getPostalAddress(), "\r\n"));
+        $postalCode = (string) $address?->getPostCode();
         $knownPostalCode = in_array($postalCode, explode(',', $this->datapoints()['postalCodes']), true);
         $country = $ledger->getCountry()?->getIsoAlpha2Code() ?? 'BE';
         $previousYear = $this->fiscalYearRepository->findPrevious($fiscalYear);
@@ -157,7 +158,7 @@ class NbbXbrlWriter
             $identification['postalCode'] = 'pcd:m'.$postalCode;
         } else {
             $identification['otherPostalCode'] = $postalCode;
-            $identification['otherCity'] = (string) $ledger->getCity();
+            $identification['otherCity'] = (string) $address?->getCity();
         }
 
         return array_filter($identification, fn (?string $value) => null !== $value && '' !== trim($value));

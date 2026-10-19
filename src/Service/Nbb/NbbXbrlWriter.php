@@ -10,6 +10,7 @@ use Wexample\SymfonyAccounting\Entity\Ledger;
 use Wexample\SymfonyAccounting\Exception\AccountingException;
 use Wexample\SymfonyAccounting\Repository\FiscalYearRepository;
 use Wexample\SymfonyMoney\Helper\MoneyHelper;
+use Symfony\Contracts\Service\ResetInterface;
 
 /**
  * A Belgian company's annual accounts as the XBRL instance the National Bank's
@@ -28,7 +29,7 @@ use Wexample\SymfonyMoney\Helper\MoneyHelper;
  * Filing goes through the NBB's application; validating the instance against the
  * taxonomy's checks before is what Arelle does (see the package's knowledge).
  */
-class NbbXbrlWriter
+class NbbXbrlWriter implements ResetInterface
 {
     public const string MODEL_MICRO = 'micro';
     public const string MODEL_ABRIDGED = 'abridged';
@@ -76,6 +77,14 @@ class NbbXbrlWriter
         private readonly NbbAnnualAccountsBuilder $builder,
         private readonly FiscalYearRepository $fiscalYearRepository,
     ) {
+    }
+
+    /**
+     * The contexts of the filing being written, not of the next one.
+     */
+    public function reset(): void
+    {
+        $this->contexts = [];
     }
 
     public function getTaxonomyVersion(): string

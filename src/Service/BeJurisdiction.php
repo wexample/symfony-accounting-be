@@ -15,6 +15,7 @@ use Wexample\SymfonyAccounting\Enum\JournalType;
 use Wexample\SymfonyAccounting\Enum\VatKind;
 use Wexample\SymfonyAccounting\Service\Jurisdiction\AbstractJurisdiction;
 use Wexample\SymfonyAccountingBe\Helper\StructuredCommunicationHelper;
+use Wexample\SymfonyHelpers\Attribute\WorkerSafe;
 
 /**
  * Belgian law and practice: the PCMN, VAT rates, the mentions of the VAT code
@@ -33,6 +34,7 @@ class BeJurisdiction extends AbstractJurisdiction
     public const string DATASET_PCMN = 'be_pcmn';
 
     /** @var list<ChartAccountDefinition>|null */
+    #[WorkerSafe('The Belgian chart, read once from the bundled file.')]
     private ?array $chart = null;
 
     public function getCountryCode(): ?string

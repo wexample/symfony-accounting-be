@@ -1,6 +1,6 @@
 # symfony-accounting-be
 
-Version: 6.0.0
+Version: 6.0.1
 
 ## Chart and journals
 
@@ -86,7 +86,7 @@ The suite includes packages for configuration management, file handling, prompts
 
 - php: >=8.5
 - wexample/symfony-accounting: >=8.0.0
-- wexample/symfony-helpers: >=17.0.0
+- wexample/symfony-helpers: >=18.0.0
 - wexample/symfony-organization: >=3.0.0
 
 ## Versioning & Compatibility Policy

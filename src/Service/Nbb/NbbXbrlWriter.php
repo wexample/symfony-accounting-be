@@ -5,12 +5,12 @@ namespace Wexample\SymfonyAccountingBe\Service\Nbb;
 use DateTimeImmutable;
 use DOMDocument;
 use DOMElement;
+use Symfony\Contracts\Service\ResetInterface;
 use Wexample\SymfonyAccounting\Entity\FiscalYear;
 use Wexample\SymfonyAccounting\Entity\Ledger;
 use Wexample\SymfonyAccounting\Exception\AccountingException;
 use Wexample\SymfonyAccounting\Repository\FiscalYearRepository;
 use Wexample\SymfonyMoney\Helper\MoneyHelper;
-use Symfony\Contracts\Service\ResetInterface;
 
 /**
  * A Belgian company's annual accounts as the XBRL instance the National Bank's

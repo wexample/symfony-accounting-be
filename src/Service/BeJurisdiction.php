@@ -3,16 +3,12 @@
 namespace Wexample\SymfonyAccountingBe\Service;
 
 use Wexample\SymfonyAccounting\Class\ChartAccountDefinition;
-use Wexample\SymfonyAccounting\Class\LatePenaltyPolicy;
 use Wexample\SymfonyAccounting\Class\LegalMention;
 use Wexample\SymfonyAccounting\Class\ReportDefinition;
 use Wexample\SymfonyAccounting\Entity\Invoice;
-use Wexample\SymfonyAccounting\Entity\Ledger;
-use Wexample\SymfonyAccounting\Enum\AccountNature;
 use Wexample\SymfonyAccounting\Enum\InvoiceDirection;
 use Wexample\SymfonyAccounting\Enum\InvoiceType;
 use Wexample\SymfonyAccounting\Enum\JournalType;
-use Wexample\SymfonyAccounting\Enum\VatKind;
 use Wexample\SymfonyAccounting\Service\Jurisdiction\AbstractJurisdiction;
 use Wexample\SymfonyAccountingBe\Helper\StructuredCommunicationHelper;
 use Wexample\SymfonyHelpers\Attribute\WorkerSafe;
@@ -41,11 +37,6 @@ class BeJurisdiction extends AbstractJurisdiction
     {
         return 'BE';
     }
-
-
-
-
-
 
     public function getVatRates(): array
     {
@@ -155,23 +146,7 @@ class BeJurisdiction extends AbstractJurisdiction
             return [];
         }
 
-        $mentions = [];
-
-        foreach ($invoice->getVatKinds() as $kind) {
-            $key = match ($kind) {
-                VatKind::Franchise => 'mention.be.vat.franchise',
-                VatKind::IntraEuServices => 'mention.be.vat.reverse_charge',
-                VatKind::DomesticReverseCharge => 'mention.be.vat.domestic_reverse_charge',
-                VatKind::IntraEuGoods => 'mention.be.vat.intra_eu_goods',
-                VatKind::Export => 'mention.be.vat.export',
-                VatKind::Exempt => 'mention.be.vat.exempt',
-                default => null,
-            };
-
-            if ($key) {
-                $mentions[] = new LegalMention($key, LegalMention::PLACEMENT_VAT);
-            }
-        }
+        $mentions = $this->getVatKindMentions($invoice);
 
         if (in_array($invoice->getType(), [InvoiceType::Bill, InvoiceType::Penalty], true)) {
             $policy = $this->getLatePenaltyPolicy($invoice->getLedger());
@@ -189,13 +164,9 @@ class BeJurisdiction extends AbstractJurisdiction
         return $mentions;
     }
 
-    public function getLatePenaltyPolicy(Ledger $ledger): LatePenaltyPolicy
+    protected function getMentionKeyPrefix(): string
     {
-        return new LatePenaltyPolicy(
-            mode: $ledger->getSetting('late_penalty_mode', LatePenaltyPolicy::MODE_ANNUAL),
-            rate: (int) $ledger->getSetting('late_penalty_rate', 1200),
-            flatFee: (int) $ledger->getSetting('late_penalty_flat_fee', 4000),
-        );
+        return 'mention.be.';
     }
 
     /**
@@ -225,24 +196,5 @@ class BeJurisdiction extends AbstractJurisdiction
             ReportDefinition::fromArray(require __DIR__.'/../Resources/data/reports/income_statement.php'),
             ReportDefinition::fromArray(require __DIR__.'/../Resources/data/reports/nbb_annual_accounts.php'),
         ];
-    }
-
-    /**
-     * @return list<ChartAccountDefinition>
-     */
-    private function readChart(string $path): array
-    {
-        $accounts = [];
-        $handle = fopen($path, 'r');
-        fgetcsv($handle, null, ';', '"', '');
-
-        while (false !== ($row = fgetcsv($handle, null, ';', '"', ''))) {
-            [$number, $label, $nature, $lettrable] = $row;
-            $accounts[] = new ChartAccountDefinition($number, $label, AccountNature::from($nature), '1' === $lettrable);
-        }
-
-        fclose($handle);
-
-        return $accounts;
     }
 }

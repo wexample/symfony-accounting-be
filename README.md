@@ -1,6 +1,6 @@
 # symfony-accounting-be
 
-Version: 7.0.0
+Version: 7.0.1
 
 Belgian law for symfony-accounting: PCMN chart, enterprise numbers, structured communications, CODA bank files, periodic VAT return, client and intra-EU listings, legal mentions
 
